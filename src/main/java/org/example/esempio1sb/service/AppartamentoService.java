@@ -28,4 +28,6 @@ public class AppartamentoService {
     public void deleteAppartamento(int codAppartamento) {
         appartamentoRepository.deleteById(codAppartamento);
     }
+
+
 }

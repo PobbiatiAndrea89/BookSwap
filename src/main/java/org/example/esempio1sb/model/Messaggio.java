@@ -1,4 +1,4 @@
-package org.example.esempio1sb.model;
+package com.bookexchange.esempio1sb.model;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;

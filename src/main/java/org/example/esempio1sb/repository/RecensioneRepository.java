@@ -1,6 +1,6 @@
-package org.example.esempio1sb.repository;
+package com.bookexchange.esempio1sb.repository;
 
-import org.example.esempio1sb.model.Recensione;
+import com.bookexchange.esempio1sb.model.Recensione;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;

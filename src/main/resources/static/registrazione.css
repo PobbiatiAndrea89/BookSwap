@@ -1,0 +1,99 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styling */
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Header Styling */
+.container h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+/* Input Fields Styling */
+.container input[type="text"],
+.container input[type="email"],
+.container input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.container input[type="text"]:focus,
+.container input[type="email"]:focus,
+.container input[type="password"]:focus {
+    border-color: #6e8efb;
+    outline: none;
+}
+
+/* Button Styling */
+.container button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #6e8efb;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.container button:hover {
+    background: #5a7de1;
+}
+
+/* Link Styling */
+.container a {
+    display: block;
+    margin-top: 1rem;
+    color: #6e8efb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.container a:hover {
+    color: #5a7de1;
+}
+
+/* Error Message Styling */
+.container .error {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Success Message Styling */
+.container .success {
+    color: #2ecc71;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}

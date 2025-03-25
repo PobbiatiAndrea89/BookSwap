@@ -1,47 +1,21 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookSwap - Home</title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #eef2f3;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #6c63ff;
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
-        .libri {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        .libro {
-            background: white;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>Home</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-    <h1>BookSwap</h1>
-    <p>Scopri, scambia e acquista i tuoi libri preferiti</p>
-</header>
-<div class="libri">
-    <h2>Libri disponibili</h2>
-    <div th:each="libro : ${libri}" class="libro">
-        <h3 th:text="${libro.titolo}"></h3>
-        <p>Autore: <span th:text="${libro.autore}"></span></p>
-        <p>Prezzo: €<span th:text="${libro.prezzo}"></span></p>
+<div class="container">
+    <div class="content">
+        <img src="logobook.png" alt="BookExchange" class="hero-image">
+        <h1>Benvenuto su BookSwap</h1>
+        <div class="button-container">
+            <a href="/registrazione" class="btn">Registrati</a>
+            <a href="/login" class="btn">Accedi</a>
+        </div>
     </div>
 </div>
 </body>

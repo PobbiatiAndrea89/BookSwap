@@ -1,7 +1,16 @@
-package org.example.esempio1sb.model;
+package com.bookexchange.model;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.data.annotation.Id;
+
 import java.math.BigDecimal;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "Libro")
 
 @Entity
 public class Libro {
@@ -17,7 +26,7 @@ public class Libro {
     private String materia;
 
     @Enumerated(EnumType.STRING)
-    private StatoLibro stato; // Enum: Nuovo, Usato, Molto Usato
+    private StatoLibro stato;
 
     private BigDecimal prezzo;
 
@@ -109,6 +118,7 @@ public class Libro {
         this.utente = utente;
     }
 }
+
 
 
 

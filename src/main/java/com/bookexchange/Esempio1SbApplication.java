@@ -1,4 +1,4 @@
-package org.example.esempio1sb;
+package com.bookexchange;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

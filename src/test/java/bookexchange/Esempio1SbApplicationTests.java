@@ -1,4 +1,4 @@
-package org.example.esempio1sb;
+package bookexchange;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

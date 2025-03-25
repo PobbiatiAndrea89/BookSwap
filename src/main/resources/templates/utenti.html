@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookExchange - Utenti</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">📚 BookExchange</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/libri">Libri</a></li>
+            <li><a href="/annunci">Annunci</a></li>
+            <li><a href="/messaggi">Messaggi</a></li>
+            <li><a href="/recensioni">Recensioni</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <h1>Lista Utenti</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Città</th>
+            <th>Scuola</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="utente : ${utenti}">
+            <td th:text="${utente.nome}"></td>
+            <td th:text="${utente.email}"></td>
+            <td th:text="${utente.citta}"></td>
+            <td th:text="${utente.scuola}"></td>
+            <td th:text="${utente.rating}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p>&copy; 2025 BookExchange - Tutti i diritti riservati</p>
+</footer>
+
+</body>
+</html>

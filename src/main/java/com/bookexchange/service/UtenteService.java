@@ -4,6 +4,7 @@ import com.bookexchange.model.Utente;
 import com.bookexchange.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,8 +15,9 @@ public class UtenteService {
     @Autowired
     private UtenteRepository utenteRepository;
 
-    public Utente saveUtente(Utente utente) {
-        return utenteRepository.save(utente);
+    @Transactional
+    public void saveUtente(Utente utente) {
+        utenteRepository.save(utente);
     }
 
     public Utente findById(Long id) {

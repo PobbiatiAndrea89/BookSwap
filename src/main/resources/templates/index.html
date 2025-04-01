@@ -1,22 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>BookExchange - Home</title>
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
-<div class="container">
-    <div class="content">
-        <img src="logobook.png" alt="BookExchange" class="hero-image">
-        <h1>Benvenuto su BookSwap</h1>
-        <div class="button-container">
-            <a href="/registrazione" class="btn">Registrati</a>
-            <a href="/login" class="btn">Accedi</a>
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="branding">
+            <img src="logobook.png" alt="Logo" class="logo">
+            <h1>BookSwap</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/registrazione">Registrati</a></li>
+                <li><a href="/login">Accedi</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Sezione Principale -->
+<section>
+    <div class="container">
+        <h2>Benvenuto su BookSwap!</h2>
+        <div class="description">
+            <div class="text">
+                <h3>Trova libri usati a prezzi vantaggiosi!</h3>
+                <p>Scopri migliaia di libri disponibili per il tuo corso, la tua scuola o il tuo hobby. Unisciti alla nostra community di lettori!</p>
+                <a href="/catalogo" class="btn">Esplora il catalogo</a>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+<!-- Caratteristiche -->
+<section>
+    <div class="container">
+        <h2>Caratteristiche</h2>
+        <div class="feature">
+            <img src="libro.png" alt="Icona 1">
+            <div>
+                <h3>Libri Sempre Aggiornati</h3>
+                <p>Accedi a una vasta selezione di libri aggiornati quotidianamente.</p>
+            </div>
+        </div>
+        <div class="feature">
+            <img src="libro2.png" alt="Icona 2">
+            <div>
+                <h3>Facile da Usare</h3>
+                <p>Il nostro sistema è semplice e intuitivo. Trova il libro che ti serve in pochi clic!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>© 2025 BookExchange. Tutti i diritti riservati.</p>
+        <ul class="social-links">
+            <li><a href="#"><img src="facebook-icon.png" alt="Facebook"></a></li>
+            <li><a href="#"><img src="twitter-icon.png" alt="Twitter"></a></li>
+            <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
+        </ul>
+    </div>
+</footer>
+
+
+
 </body>
 </html>

@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,31 +45,32 @@ public class MainController {
         return "registrazione"; // Restituisce il template registrazione.html
     }
 
-    // Salva un nuovo utente
     @PostMapping("/registrazione")
     public String registerUser(@RequestParam String nome,
                                @RequestParam String email,
                                @RequestParam String password,
                                @RequestParam(required = false) String citta,
                                @RequestParam(required = false) String scuola,
-                               Model model) {
+                               RedirectAttributes redirectAttributes) {
         Optional<Utente> existingUtente = utenteService.findByEmail(email);
         if (existingUtente.isPresent()) {
-            model.addAttribute("error", "Email già in uso");
-            return "registrazione";
+            redirectAttributes.addFlashAttribute("error", "Email già in uso");
+            return "redirect:/registrazione";
         }
 
         Utente nuovoUtente = new Utente();
         nuovoUtente.setNome(nome);
         nuovoUtente.setEmail(email);
-        nuovoUtente.setPassword(password); // Considera di hashare la password prima di salvarla
+        nuovoUtente.setPassword(password); // La password viene salvata in chiaro
         nuovoUtente.setCitta(citta);
         nuovoUtente.setScuola(scuola);
+        nuovoUtente.setDataRegistrazione(new Timestamp(System.currentTimeMillis()));
         utenteService.saveUtente(nuovoUtente);
 
-        model.addAttribute("message", "Registrazione completata con successo!");
-        return "redirect:/login"; // Reindirizza alla pagina di login
+        redirectAttributes.addFlashAttribute("message", "Registrazione completata con successo!");
+        return "redirect:/"; // Reindirizza alla home page
     }
+
 
     // Pagina di login
     @GetMapping("/login")
@@ -87,7 +91,12 @@ public class MainController {
 
         // Imposta la sessione utente o il token qui
         model.addAttribute("message", "Login avvenuto con successo");
-        return "redirect:/"; // Reindirizza alla home page o alla dashboard utente
+        return "area_riservata"; // Reindirizza alla home page o alla dashboard utente
+    }
+
+    @RequestMapping("/area_riservata")
+    public String areaRiservata(Model model) {
+        return "area_riservata";
     }
 
     // Lista dei libri (mostrata nella home page)

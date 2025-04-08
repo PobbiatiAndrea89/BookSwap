@@ -1,0 +1,33 @@
+<form action="/catalogo" method="get" class="filtro-form">
+  <link rel="stylesheet" href="catalogo.css">
+
+  <input type="text" name="titolo" placeholder="Cerca per titolo" value="${titolo}" />
+
+  <select name="materia">
+    <option value="">Materia</option>
+    <option value="Matematica" th:selected="${materia == 'Matematica'}">Matematica</option>
+    <option value="Italiano" th:selected="${materia == 'Italiano'}">Italiano</option>
+    <!-- Aggiungi altre -->
+  </select>
+
+  <select name="stato">
+    <option value="">Stato</option>
+    <option value="NUOVO" th:selected="${stato == 'NUOVO'}">Nuovo</option>
+    <option value="USATO" th:selected="${stato == 'USATO'}">Usato</option>
+    <option value="MOLTO_USATO" th:selected="${stato == 'MOLTO_USATO'}">Molto usato</option>
+  </select>
+
+  <button type="submit">Filtra</button>
+</form>
+
+<div class="libri-grid">
+  <div th:each="libro : ${libri}" class="libro-card">
+    <h3 th:text="${libro.titolo}">Titolo</h3>
+    <p th:text="${libro.autore}">Autore</p>
+    <p th:text="${libro.materia}">Materia</p>
+    <p th:text="${libro.stato}">Stato</p>
+    <p th:text="${libro.prezzo} + '€'">Prezzo</p>
+    <p th:text="${libro.descrizione}">Descrizione</p>
+    <a th:href="@{'/libri/' + ${libro.id}}">Dettagli</a>
+  </div>
+</div>

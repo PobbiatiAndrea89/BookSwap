@@ -1,0 +1,129 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #333;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    z-index: 1;
+}
+
+/* Form Filtro */
+.filtro-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #444;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    z-index: 5;
+    position: relative;
+}
+
+.filtro-form input,
+.filtro-form select {
+    flex: 1 1 200px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #555;
+    color: #fff;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.filtro-form input::placeholder {
+    color: #ccc;
+}
+
+.filtro-form select option {
+    background: #333;
+    color: #fff;
+}
+
+.filtro-form button {
+    background-color: #ffeb3b;
+    color: #333;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filtro-form button:hover {
+    background-color: #fff176;
+}
+
+/* Griglia Libri */
+.libri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 5;
+    position: relative;
+}
+
+/* Card Libro */
+.libro-card {
+    background-color: #444;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.libro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.libro-card h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.libro-card p {
+    margin: 0.3rem 0;
+    color: #ddd;
+}
+
+.libro-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #ffeb3b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.libro-card a:hover {
+    color: #fff176;
+}

@@ -144,21 +144,55 @@ public class MainController {
         return "dettaglio-libro"; // Restituisce un template con i dettagli del libro
     }
 
-    // Gestione annunci
+    // Aggiungi Annuncio
+    @PostMapping("/annunci")
+    public String addAnnuncio(@RequestParam Long libroId,
+                              @RequestParam String statoAnnuncio,
+                              Model model) {
+        Annuncio nuovoAnnuncio = new Annuncio();
+        Libro libro = libroService.findById(libroId);
+        nuovoAnnuncio.setLibro(libro);
+        nuovoAnnuncio.setStatoAnnuncio(Annuncio.StatoAnnuncio.valueOf(statoAnnuncio));
+        annuncioService.saveAnnuncio(nuovoAnnuncio);
+        model.addAttribute("message", "Annuncio creato con successo!");
+        return "redirect:/annunci"; // Reindirizza alla pagina annunci
+    }
+
+    // Visualizza Annunci
     @GetMapping("/annunci")
     public String viewAnnunci(Model model) {
         List<Annuncio> annunci = annuncioService.getAllAnnunci();
         model.addAttribute("annunci", annunci);
-        return "annunci"; // Restituisce il template annunci.html
+        return "annunci"; // Visualizza il template annunci.html
     }
 
-    @PostMapping("/annunci")
-    public String addAnnuncio(@RequestParam Long libroId, Model model) {
-        Annuncio nuovoAnnuncio = new Annuncio();
-        Libro libro = libroService.findById(libroId);
-        nuovoAnnuncio.setLibro(libro);
-        annuncioService.saveAnnuncio(nuovoAnnuncio);
-        model.addAttribute("message", "Annuncio creato con successo!");
-        return "annunci"; // Reindirizza alla pagina annunci
+    @GetMapping("/catalogo")
+    public String catalogoPage(
+            @RequestParam(required = false) String titolo,
+            @RequestParam(required = false) String materia,
+            @RequestParam(required = false) Libro.StatoLibro stato,
+            @RequestParam(required = false) BigDecimal prezzoMax,
+            Model model) {
+
+        List<Libro> libri;
+
+        if (titolo != null || materia != null || stato != null || prezzoMax != null) {
+            libri = libroService.filtraLibri(titolo, materia, stato, prezzoMax);
+        } else {
+            libri = libroService.getAllLibri();
+        }
+
+        model.addAttribute("libri", libri);
+        return "catalogo";
+    }
+
+    @RequestMapping("annunci")
+    public String annunci(){
+        return "annunci";
+    }
+
+    @RequestMapping("index")
+    public String index(){
+        return "index";
     }
 }

@@ -1,25 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const numDots = 50;
+    const numBubbles = 40;
 
-    // Aggiungi i pallini animati allo sfondo
-    for (let i = 0; i < numDots; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('animated-dot');
-        dot.style.left = `${Math.random() * 100}vw`;
-        dot.style.top = `${Math.random() * 100}vh`;
-        document.body.appendChild(dot);
-    }
-
-    // Aggiungi inoltre dei pallini nella sezione descrizione,
-    // che reagiranno con l'effetto "explode" al mouseover.
-    const description = document.querySelector('.description');
-    if (description) {
-        for (let i = 0; i < numDots; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('animated-dot');
-            dot.style.left = `${Math.random() * 100}%`;
-            dot.style.top = `${Math.random() * 100}%`;
-            description.appendChild(dot);
-        }
+    for (let i = 0; i < numBubbles; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('background-bubble');
+        bubble.style.left = `${Math.random() * 100}vw`;
+        bubble.style.animationDuration = `${5 + Math.random() * 10}s`;
+        bubble.style.animationDelay = `${Math.random() * 5}s`;
+        document.body.appendChild(bubble);
     }
 });

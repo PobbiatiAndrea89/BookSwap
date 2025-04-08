@@ -109,9 +109,3 @@ public class Libro {
         this.utente = utente;
     }
 }
-
-
-
-
-
-

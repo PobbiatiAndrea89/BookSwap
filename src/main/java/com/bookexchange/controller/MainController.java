@@ -145,26 +145,7 @@ public class MainController {
     }
 
     // Aggiungi Annuncio
-    @PostMapping("/annunci")
-    public String addAnnuncio(@RequestParam Long libroId,
-                              @RequestParam String statoAnnuncio,
-                              Model model) {
-        Annuncio nuovoAnnuncio = new Annuncio();
-        Libro libro = libroService.findById(libroId);
-        nuovoAnnuncio.setLibro(libro);
-        nuovoAnnuncio.setStatoAnnuncio(Annuncio.StatoAnnuncio.valueOf(statoAnnuncio));
-        annuncioService.saveAnnuncio(nuovoAnnuncio);
-        model.addAttribute("message", "Annuncio creato con successo!");
-        return "redirect:/annunci"; // Reindirizza alla pagina annunci
-    }
-
-    // Visualizza Annunci
-    @GetMapping("/annunci")
-    public String viewAnnunci(Model model) {
-        List<Annuncio> annunci = annuncioService.getAllAnnunci();
-        model.addAttribute("annunci", annunci);
-        return "annunci"; // Visualizza il template annunci.html
-    }
+   
 
     @GetMapping("/catalogo")
     public String catalogoPage(

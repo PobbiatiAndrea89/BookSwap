@@ -18,6 +18,7 @@ public class LibroService {
         return libroRepository.save(libro);
     }
 
+
     public List<Libro> getAllLibri() {
         return libroRepository.findAll();
     }

@@ -1,141 +1,66 @@
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-/* Variabili di colore */
-:root {
-    --primary-color: #6e8efb; /* Blu principale */
-    --secondary-color: #5a7de1; /* Blu scuro per hover */
-    --accent-color: #f5a623; /* Colore di accento (arancio) */
-    --background-color: #f4f4f4; /* Grigio chiaro per lo sfondo */
-    --white: #ffffff;
-    --text-color: #333333; /* Testo scuro per contrasto */
-    --border-color: #ddd; /* Colore del bordo */
-    --hover-color: #e4e4e4; /* Colore per il hover sui bottoni e link */
-    --success-color: #28a745; /* Verde per i messaggi di successo */
-    --error-color: #dc3545; /* Rosso per i messaggi di errore */
-}
-
-/* Body Styling */
-body {
-    background-color: var(--background-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-color);
-}
-
-/* Container per il contenuto principale */
+/* Container generico per la pagina */
 .container {
-    width: 90%;
-    max-width: 800px;
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 0 auto;
     padding: 20px;
-    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Titoli */
-h1, h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+h2 {
     text-align: center;
+    font-size: 2rem;
+    color: #6e8efb;
+    margin-bottom: 20px;
 }
 
-/* Stile del modulo */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.form-group {
+    margin-bottom: 15px;
 }
 
-/* Stile degli input e selezioni */
-input, select, button {
-    padding: 12px 20px;
+.form-group label {
+    display: block;
     font-size: 1rem;
-    border: 1px solid var(--border-color);
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
-    transition: all 0.3s ease;
 }
 
-input:focus, select:focus {
-    border-color: var(--primary-color);
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #6e8efb;
 }
 
-select {
-    cursor: pointer;
-}
-
-button {
-    background-color: var(--primary-color);
-    color: var(--white);
-    font-weight: bold;
-    cursor: pointer;
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #6e8efb;
     border: none;
-}
-
-button:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Messaggi di successo e errore */
-.message {
-    padding: 10px;
     border-radius: 5px;
-    margin-bottom: 15px;
-    text-align: center;
-    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.message.success {
-    background-color: var(--success-color);
-    color: var(--white);
+.btn-submit:hover {
+    background-color: #5a7de1;
 }
 
-.message.error {
-    background-color: var(--error-color);
-    color: var(--white);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 30px;
+.message {
+    color: #28a745;
     font-size: 1rem;
-    color: var(--text-color);
-}
-
-footer a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer a:hover {
-    color: var(--secondary-color);
-}
-
-/* Responsività */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    h1, h2 {
-        font-size: 1.5rem;
-    }
-
-    input, select, button {
-        font-size: 0.9rem;
-    }
+    text-align: center;
+    margin-top: 15px;
 }
